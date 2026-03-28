@@ -1,5 +1,6 @@
 ﻿import Link from "next/link";
 import { StageShell } from "@/components/StageShell";
+import { BASE_APP_ID, BASE_BUILDER_CODE } from "@/lib/base-miniapp";
 
 export default function AboutPage() {
   return (
@@ -35,14 +36,26 @@ export default function AboutPage() {
             </div>
             <div className="detail-panel">
               <div className="detail-pair">
-                <span>Base Meta</span>
-                <strong className="mono">69c22f7b3c2c56b9bbd2f616</strong>
+                <span>Base App ID</span>
+                <strong className="mono">{BASE_APP_ID}</strong>
+              </div>
+            </div>
+            <div className="detail-panel">
+              <div className="detail-pair">
+                <span>Builder Code</span>
+                <strong className="mono">{BASE_BUILDER_CODE}</strong>
+              </div>
+            </div>
+            <div className="detail-panel">
+              <div className="detail-pair">
+                <span>8021 Suffix</span>
+                <strong className="mono">Enabled in onchain trace transactions.</strong>
               </div>
             </div>
             <div className="detail-panel">
               <div className="detail-pair">
                 <span>Tracking</span>
-                <strong>Prepared for transaction attribution hooks.</strong>
+                <strong>Successful onchain traces call the attribution endpoint.</strong>
               </div>
             </div>
           </div>

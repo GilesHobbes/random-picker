@@ -38,7 +38,8 @@ export default function ResultDetailPage() {
               <div className="result-number">{record.result}</div>
               <div className="chip-row">
                 <span className="chip">Range {record.max}</span>
-                <span className="chip">Pseudo-random</span>
+                <span className="chip">{record.txHash ? "Onchain Trace" : "Local Preview"}</span>
+                <span className="chip">{record.chainName ?? "Base"}</span>
               </div>
             </div>
 
@@ -67,6 +68,18 @@ export default function ResultDetailPage() {
                   <strong>{record.source}</strong>
                 </div>
               </div>
+              <div className="detail-panel">
+                <div className="detail-pair">
+                  <span>Builder Code</span>
+                  <strong className="mono">{record.builderCode ?? "bc_y36qskym"}</strong>
+                </div>
+              </div>
+              <div className="detail-panel">
+                <div className="detail-pair">
+                  <span>Tx Hash</span>
+                  <strong className="mono">{record.txHash ?? "No onchain trace yet"}</strong>
+                </div>
+              </div>
             </div>
 
             <ActionBar copyValue={`${record.result}`} />
@@ -91,4 +104,3 @@ export default function ResultDetailPage() {
     </StageShell>
   );
 }
-

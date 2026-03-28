@@ -1,4 +1,5 @@
-﻿import type { PickerRecord } from "@/types/picker";
+﻿import { BASE_BUILDER_CODE } from "@/lib/base-miniapp";
+import type { PickerRecord } from "@/types/picker";
 
 function hashText(input: string) {
   let hash = 2166136261;
@@ -27,11 +28,13 @@ export function buildPickerRecord({
   result,
   max,
   source,
+  txHash,
 }: {
   seed: string;
   result: number;
   max: number;
   source: string;
+  txHash?: string;
 }): PickerRecord {
   const createdAt = new Date().toISOString();
   const slug = `${hashText(`${seed}-${createdAt}`)}`.slice(0, 10);
@@ -43,6 +46,9 @@ export function buildPickerRecord({
     max,
     createdAt,
     source,
+    txHash,
+    chainName: "Base",
+    builderCode: BASE_BUILDER_CODE,
   };
 }
 

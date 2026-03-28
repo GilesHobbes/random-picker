@@ -1,4 +1,4 @@
-export type PickerStatus = "ready" | "generating" | "result" | "copied" | "idle";
+﻿export type PickerStatus = "ready" | "generating" | "result" | "copied" | "idle";
 
 export type PickerRecord = {
   id: string;
@@ -7,4 +7,7 @@ export type PickerRecord = {
   max: number;
   createdAt: string;
   source: string;
+  txHash?: string;
+  chainName?: string;
+  builderCode?: string;
 };

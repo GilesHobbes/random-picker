@@ -8,6 +8,8 @@ export const MOCK_HISTORY: PickerRecord[] = [
     max: 100,
     createdAt: "2026-03-28T06:48:00.000Z",
     source: "Mock Archive",
+    chainName: "Base",
+    builderCode: "bc_y36qskym",
   },
   {
     id: "mock-aurora-02",
@@ -16,6 +18,7 @@ export const MOCK_HISTORY: PickerRecord[] = [
     max: 100,
     createdAt: "2026-03-28T05:12:00.000Z",
     source: "Mock Archive",
+    chainName: "Base",
+    builderCode: "bc_y36qskym",
   },
 ];
-

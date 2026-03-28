@@ -40,7 +40,8 @@ export function ResultRevealCard({
           <div className="result-number">{record ? record.result : "--"}</div>
           <div className="result-pill-row">
             <span className="chip">Max Range {record?.max ?? 100}</span>
-            <span className="chip">Seed Hash Ready</span>
+            <span className="chip">{record?.chainName ?? "Base"}</span>
+            <span className="chip">{record?.txHash ? "Attribution Ready" : "Preview Flow"}</span>
           </div>
         </div>
 
@@ -59,8 +60,14 @@ export function ResultRevealCard({
           </div>
           <div className="detail-panel">
             <div className="detail-pair">
-              <span>Record ID</span>
-              <strong className="mono">{record?.id ?? "Not saved yet"}</strong>
+              <span>Builder Code</span>
+              <strong className="mono">{record?.builderCode ?? "bc_y36qskym"}</strong>
+            </div>
+          </div>
+          <div className="detail-panel">
+            <div className="detail-pair">
+              <span>Tx Hash</span>
+              <strong className="mono">{record?.txHash ?? "No onchain trace yet"}</strong>
             </div>
           </div>
           <ActionBar
@@ -78,4 +85,3 @@ export function ResultRevealCard({
     </section>
   );
 }
-

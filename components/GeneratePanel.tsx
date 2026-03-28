@@ -6,6 +6,7 @@ import { ResultStatusChip } from "@/components/ResultStatusChip";
 import { SeedInputField } from "@/components/SeedInputField";
 import { useRandomPicker } from "@/hooks/useRandomPicker";
 import { usePickerStore } from "@/hooks/usePickerStore";
+import { BASE_BUILDER_CODE } from "@/lib/base-miniapp";
 import { PickerStatus } from "@/types/picker";
 
 type GeneratePanelProps = {
@@ -16,7 +17,7 @@ export function GeneratePanel({ defaultSeed = "" }: GeneratePanelProps) {
   const [seed, setSeed] = useState(defaultSeed);
   const [copied, setCopied] = useState(false);
   const { latest } = usePickerStore();
-  const { status, currentRecord, generate, address } = useRandomPicker();
+  const { status, currentRecord, generate, generateOnchain, address, txHash, isConnected } = useRandomPicker();
 
   const liveStatus = useMemo<PickerStatus>(() => {
     if (copied) return "copied";
@@ -28,6 +29,11 @@ export function GeneratePanel({ defaultSeed = "" }: GeneratePanelProps) {
   async function handleGenerate() {
     setCopied(false);
     await generate(seed);
+  }
+
+  async function handleGenerateOnchain() {
+    setCopied(false);
+    await generateOnchain(seed);
   }
 
   return (
@@ -56,8 +62,8 @@ export function GeneratePanel({ defaultSeed = "" }: GeneratePanelProps) {
               <strong>{latest ? latest.result : "--"}</strong>
             </div>
             <div className="metric-card">
-              <span className="muted">Range</span>
-              <strong>0-99</strong>
+              <span className="muted">Builder</span>
+              <strong>{BASE_BUILDER_CODE}</strong>
             </div>
           </div>
 
@@ -70,13 +76,23 @@ export function GeneratePanel({ defaultSeed = "" }: GeneratePanelProps) {
             >
               {status === "generating" ? "Generating" : "Generate Result"}
             </button>
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={handleGenerateOnchain}
+              disabled={!seed.trim() || !isConnected || status === "generating"}
+            >
+              Generate Onchain Trace
+            </button>
             <button type="button" className="btn btn-secondary" onClick={() => setSeed("")}>
               Clear Seed
             </button>
           </div>
+
           <p className="meta-text">
-            Seed is used to create a pseudo-random reveal flow that can later be replaced with live contract reads.
+            Local reveal is instant. Onchain trace appends the Base builder code suffix for attribution-ready transaction hashes.
           </p>
+          {txHash ? <p className="meta-text mono">Tx {txHash}</p> : null}
         </div>
       </section>
 

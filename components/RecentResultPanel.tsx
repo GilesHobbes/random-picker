@@ -29,8 +29,8 @@ export function RecentResultPanel({ record }: { record?: PickerRecord | null }) 
             </div>
             <div className="inline-meta">
               <span>{formatShortDate(record.createdAt)}</span>
-              <span>?</span>
-              <span>ID {record.id.slice(0, 8)}</span>
+              <span>•</span>
+              <span>{record.txHash ? "Onchain Trace" : "Local Preview"}</span>
             </div>
             <Link href={`/results/${record.id}`} className="btn btn-secondary">
               Open Result
@@ -49,4 +49,3 @@ export function RecentResultPanel({ record }: { record?: PickerRecord | null }) 
     </section>
   );
 }
-

@@ -1,0 +1,12 @@
+﻿<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0B1020"/>
+  <ellipse cx="257" cy="107" rx="280" ry="180" fill="#6D5BFF" fill-opacity="0.18"/>
+  <ellipse cx="971" cy="560" rx="258" ry="164" fill="#19D3C5" fill-opacity="0.15"/>
+  <rect x="86" y="88" width="1028" height="454" rx="44" fill="#111A35" stroke="#8BE9FD" stroke-opacity="0.18" stroke-width="2"/>
+  <text x="110" y="220" fill="#F5F7FF" font-family="Arial, sans-serif" font-size="92" font-weight="700">random-picker</text>
+  <text x="110" y="298" fill="#9CA7CF" font-family="Arial, sans-serif" font-size="36">Seed-driven pseudo-random reveal tool for Base</text>
+  <text x="110" y="440" fill="#F5F7FF" font-family="Arial, sans-serif" font-size="180" font-weight="700">27</text>
+  <text x="110" y="500" fill="#19D3C5" font-family="Arial, sans-serif" font-size="30">Aurora Prism Stage</text>
+  <circle cx="955" cy="230" r="76" fill="#19D3C5"/>
+  <circle cx="1016" cy="380" r="42" fill="#FF4FA3"/>
+</svg>

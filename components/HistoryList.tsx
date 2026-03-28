@@ -21,7 +21,7 @@ export function HistoryList({ records }: { records: PickerRecord[] }) {
         <Link key={record.id} href={`/results/${record.id}`} className="history-card fade-in">
           <div className="section-header">
             <span className="eyebrow">Reveal {String(index + 1).padStart(2, "0")}</span>
-            <span className="chip">Range {record.max}</span>
+            <span className="chip">{record.txHash ? "Onchain" : "Local"}</span>
           </div>
           <div className="result-line">
             <span className="muted">Result</span>
@@ -33,12 +33,11 @@ export function HistoryList({ records }: { records: PickerRecord[] }) {
           </div>
           <div className="history-meta">
             <span>{formatShortDate(record.createdAt)}</span>
-            <span>?</span>
-            <span className="mono">{record.id.slice(0, 10)}</span>
+            <span>•</span>
+            <span>{record.builderCode ?? "bc_y36qskym"}</span>
           </div>
         </Link>
       ))}
     </div>
   );
 }
-
